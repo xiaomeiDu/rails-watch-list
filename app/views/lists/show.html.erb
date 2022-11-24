@@ -1,7 +1,16 @@
 <div class="container">
   <h1>Detail of <%= @list.name %></h1>
 
-  <p>Name: <%= @list.name %></p>
+  <ul class="list-group my-5">
+    <% @list.bookmarks.each do |bookmark| %>
+      <li class="list-group-item mb-2 d-flex justify-content-between align-items-center">
+        <%= bookmark.movie.title %>
+
+        <%= link_to "Delete", bookmark_path(bookmark.id), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
 
   <%= link_to "Back lists", lists_path, class: "btn btn-primary" %>
+  <%= link_to "New bookmark", new_list_bookmark_path(@list.id), class: "btn btn-primary" %>
 </div>
