@@ -81,3 +81,5 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "open-uri"
 
 gem "dotenv-rails", groups: [:development, :test]
+
+gem "cloudinary"
